@@ -22,15 +22,15 @@ VALUES ('Engineering Manager', 150000, 1),
        ('Technical Support Specialist', 60000, 4),
        ('Research Manager', 120000, 5),
        ('Data Scientist', 130000, 5),
-       ('Innovation Strategist', 95000, 5),
+       ('Innovation Strategist', 95000, 5);
 
-INSERT INTO employees (first_name, last_name, role, manager_id)
+INSERT INTO employee (first_name, last_name, role_id, manager_id)
 VALUES ('Jasper', 'Montgomery', 1, null),
        ('Elara', 'Santiago', 2, 1),
        ('Finnian', 'Patel', 3, 1),
        ('Seraphina', 'Russo', 4, null),
        ('Orion', 'Chang', 5, 4),
-       ('Livia', 'Donovan', 6), 4,
+       ('Livia', 'Donovan', 6, 4),
        ('Cassius', 'Nguyen', 7, null),
        ('Isolde', 'Sinclair', 8, 7),
        ('Atticus', 'Morales', 9, 7),

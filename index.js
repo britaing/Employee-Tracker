@@ -16,8 +16,17 @@ const prompts = () => inquirer.prompt([
         ]
 
     }
-]);
+]).then((choices) => {
+    console.log(choices.options);
 
-prompts().then((choices) => {
+    // switch (key) {
+    //     case value:
 
+    //         break;
+
+    //     default:
+    //         break;
+    // }
 });
+
+prompts()
