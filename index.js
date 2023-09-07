@@ -48,7 +48,7 @@ const addDepartment = () => {
       },
     ])
     .then((data) => {
-      const newDepartment = { name: data.department }; 
+      const newDepartment = { name: data.department };
       const sql = "INSERT INTO department SET ?";
       connection.query(sql, newDepartment, (err, res) => {
         if (err) {
@@ -59,17 +59,83 @@ const addDepartment = () => {
         return prompts();
       });
     });
-   
 };
 
+const addEmployee = () => {
 
-const addEmployee = () => {};
+  const deptOptions = [
+    "engineering",
+    "product management",
+    "sales and marketing",
+    "customer support",
+    "research and development",
+  ];
+  const roleOptions = [
+    "engineering manager",
+    "software engineer",
+    "quality assurance",
+    "product manager",
+    "user experience designer",
+    "market research analyst",
+    "sales manager",
+    "sales representative",
+    "content creator",
+    "customer support manager",
+    "customer support agent",
+    "technical support specialist",
+    "research manager",
+    "data scientist",
+    "innovation strategist",
+  ];
+  inquirer
+    .prompt([
+      {
+        name: "first_name",
+        type: "input",
+        message: "What is the first name of the new employee to be added?",
+      },
+      {
+        name: "last_name",
+        type: "input",
+        message: "What is the last name of the new employee to be added?",
+      },
+      {
+        name: "department_id",
+        type: "list",
+        message: "In which department would you like to add the new employee?",
+        choices: deptOptions,
+      },
+      {
+        name: "role_id",
+        type: "list",
+        message: "What is the role of the new employee?",
+        choices: roleOptions,
+      },
+    ])
+    .then((data) => {
+      const newEmployee = {
+        first_name: data.first_name,
+        last_name: data.last_name,
+        department_id: department_id,
+        role_id: role_id,
+      };
+      const sql = "INSERT INTO employee SET ?";
+      connection.query(sql, newEmployee, (err, res) => {
+        if (err) {
+          console.log("error adding employee");
+          return prompts();
+        }
+        console.table(res);
+        return prompts();
+      });
+    });
+};
 
-const addRole = () => {};
+// const addRole = () => {};
 
-const updateRole = () => {};
+// const updateRole = () => {};
 
-const exitProgram = () => {};
+// const exitProgram = () => {};
 
 const prompts = () =>
   inquirer
