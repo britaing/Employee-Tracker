@@ -135,7 +135,10 @@ const addEmployee = () => {
 
 // const updateRole = () => {};
 
-// const exitProgram = () => {};
+const exitProgram = () => {
+    console.log('Good journey!');
+    process.exit(0);
+};
 
 const prompts = () =>
   inquirer
