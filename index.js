@@ -38,7 +38,30 @@ const getAllEmployees = () => {
   });
 };
 
-const addDepartment = () => {};
+const addDepartment = () => {
+  inquirer
+    .prompt([
+      {
+        name: "department",
+        type: "input",
+        message: "What is the name of the department to be added?",
+      },
+    ])
+    .then((data) => {
+      const newDepartment = { name: data.department }; 
+      const sql = "INSERT INTO department SET ?";
+      connection.query(sql, newDepartment, (err, res) => {
+        if (err) {
+          console.log("error adding department");
+          return prompts();
+        }
+        console.table(res);
+        return prompts();
+      });
+    });
+   
+};
+
 
 const addEmployee = () => {};
 
